@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "django-rest-api"  # You can change this name
+version = "0.1.0"
+description = "Django REST API project with JWT authentication"
+requires-python = ">=3.8"
+dependencies = [
+    "asgiref>=3.8.1",
+    "django>=5.1.4",
+    "django-cors-headers>=4.6.0",
+    "djangorestframework>=3.15.2",
+    "djangorestframework-simplejwt>=5.3.1",
+    "pyjwt>=2.10.1",
+    "sqlparse>=0.5.3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "flake8",
+    "pytest",
+] 
