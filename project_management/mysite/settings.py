@@ -154,3 +154,5 @@ SIMPLE_JWT = {
     'BLACKLIST_ON_LOGOUT': True,
 }
 
+AUTH_USER_MODEL = 'project_api.User'
+
