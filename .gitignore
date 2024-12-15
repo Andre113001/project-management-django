@@ -20,6 +20,9 @@ wheels/
 .installed.cfg
 *.egg
 
+# Keep frontend lib
+!frontend/src/lib/
+
 # Virtual Environment
 venv/
 env/
