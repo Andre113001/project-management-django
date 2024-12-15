@@ -82,18 +82,24 @@ const Tasks = () => {
     // Add delete mutation after the updateTaskStatus mutation
     const deleteTaskMutation = useMutation({
         mutationFn: async (taskId) => {
-            return await sendRequest({
+            const response = await sendRequest({
                 url: `/api/tasks/${taskId}/`,
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('access')}`
                 }
             });
+            
+            // Regardless of the result, refresh the page
+            window.location.reload();
+            return response; // Return the response for further handling if needed
         },
         onSuccess: () => {
             queryClient.invalidateQueries(['tasks']);
             setOpenDeleteDialog(false);
-            window.location.reload();
+        },
+        onError: (error) => {
+            console.error('Delete error:', error);
         }
     });
 
